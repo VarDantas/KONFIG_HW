@@ -1,0 +1,7 @@
+|#
+Параметры окна приложения
+#|
+var width = 1920.0
+var height = 1080.0
+var max_width = .{+ width 100.0}.
+var margins = '(10.0 20.0 10.0 20.0)

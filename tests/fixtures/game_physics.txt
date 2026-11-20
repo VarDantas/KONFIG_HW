@@ -1,0 +1,8 @@
+|#
+Настройки физического движка
+#|
+var gravity = -9.8
+var mass = 5.0
+var force = .{+ gravity mass}.
+var speed = .{sqrt 16.0}.
+var hitbox = '(1.0 2.0 3.0)
