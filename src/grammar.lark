@@ -1,0 +1,24 @@
+start: statement*
+
+?statement: var_decl | eval_expr
+
+var_decl: "var" NAME "=" value
+
+?value: NUMBER -> number
+      | array
+      | eval_expr
+      | NAME -> var_ref
+
+array: "'(" value* ")"
+
+eval_expr: ".{" OPERATOR value+ "}."
+
+OPERATOR: "+" | "sqrt"
+
+NAME: /[_a-zA-Z]+/
+NUMBER: /[+-]?\d+\.\d+/
+COMMENT: /\|#(?s:.*?)#\|/
+
+%import common.WS
+%ignore WS
+%ignore COMMENT
