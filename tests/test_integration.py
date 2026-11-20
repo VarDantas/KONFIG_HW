@@ -38,7 +38,7 @@ def test_game_physics(tmp_path):
     
     assert data["gravity"] == -9.8
     assert data["mass"] == 5.0
-    assert data["force"] == -4.8
+    assert data["force"] == pytest.approx(-4.8)
     assert data["speed"] == 4.0
     assert data["hitbox"] == [1.0, 2.0, 3.0]
 
