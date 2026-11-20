@@ -3,7 +3,7 @@ import sys
 import argparse
 import yaml
 from lark import Lark
-from lark.exceptions import UnexpectedInput
+from lark.exceptions import UnexpectedInput, VisitError
 from src.transformer import ConfigTransformer
 
 
@@ -48,6 +48,9 @@ def main():
 
     except UnexpectedInput as error:
         print(f"Синтаксическая ошибка:\n{error}", file=sys.stderr)
+        sys.exit(1)
+    except VisitError as error:
+        print(f"Ошибка вычисления: {error.orig_exc}", file=sys.stderr)
         sys.exit(1)
     except ValueError as error:
         print(f"Ошибка вычисления: {error}", file=sys.stderr)
